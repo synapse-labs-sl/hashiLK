@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-light text-white px-8 py-3 rounded-full font-semibold 
+           transition-all duration-300 shadow-bridge hover:shadow-hover hover:-translate-y-0.5;
+  }
+  
+  .btn-accent {
+    @apply bg-accent hover:bg-accent-light text-white px-8 py-3 rounded-full font-semibold 
+           transition-all duration-300 shadow-bridge hover:shadow-hover hover:-translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 
+           rounded-full font-semibold transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-bridge p-6 transition-all duration-300 
+           hover:shadow-hover hover:-translate-y-1;
+  }
+  
+  .card-bridge {
+    @apply bg-white rounded-t-3xl shadow-bridge p-6 relative overflow-hidden;
+  }
+  
+  .card-bridge::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-emerald;
+  }
+  
+  .section-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-12;
+  }
+  
+  .gokkola-bg {
+    @apply bg-gokkola;
+  }
+  
+  .bridge-arch {
+    clip-path: ellipse(100% 100% at 50% 0%);
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl 
+           focus:border-primary focus:ring-2 focus:ring-primary/20 
+           transition-all duration-300 outline-none;
+  }
+  
+  .nav-link {
+    @apply text-white/90 hover:text-white transition-all duration-300 
+           relative after:absolute after:bottom-0 after:left-0 after:w-0 
+           after:h-0.5 after:bg-accent after:transition-all after:duration-300 
+           hover:after:w-full;
+  }
+}
