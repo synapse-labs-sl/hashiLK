@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import TopNotice from './components/TopNotice';
 import ProtectedRoute from './components/ProtectedRoute';
 
 // Public pages
@@ -20,6 +21,7 @@ import Dashboard from './pages/Dashboard';
 import SellerDashboard from './pages/SellerDashboard';
 import BecomeSeller from './pages/BecomeSeller';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminContent from './pages/AdminContent';
 import Checkout from './pages/Checkout';
 import Wishlist from './pages/Wishlist';
 import Messages from './pages/Messages';
@@ -28,6 +30,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
+        <TopNotice />
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -76,6 +79,11 @@ function App() {
             <Route path="/admin" element={
               <ProtectedRoute requireAdmin>
                 <AdminDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/admin/content" element={
+              <ProtectedRoute requireAdmin>
+                <AdminContent />
               </ProtectedRoute>
             } />
           </Routes>

@@ -25,6 +25,7 @@ import paymentRoutes from './routes/payments.js';
 import notificationRoutes from './routes/notifications.js';
 import verificationRoutes from './routes/verification.js';
 import analyticsRoutes from './routes/analytics.js';
+import contentRoutes from './routes/content.js';
 
 dotenv.config();
 
@@ -79,6 +80,7 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/verification', verificationRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/content', contentRoutes);
 
 // Health check
 // Health check

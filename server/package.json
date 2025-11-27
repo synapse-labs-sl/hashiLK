@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
+    "build": "echo 'No build step required'",
     "seed": "node src/seed.js"
   },
   "dependencies": {

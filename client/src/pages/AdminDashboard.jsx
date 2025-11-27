@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import api from '../api/axios';
 import toast from 'react-hot-toast';
-import { FiCheck, FiX, FiUsers, FiPackage, FiBriefcase } from 'react-icons/fi';
+import { FiCheck, FiX, FiUsers, FiPackage, FiBriefcase, FiImage, FiBarChart2 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ function AdminDashboard() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Admin Dashboard</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
         <div className="card">
           <FiPackage className="w-8 h-8 text-primary mb-2" />
           <h3 className="text-lg font-semibold">Pending Products</h3>
@@ -90,6 +91,16 @@ function AdminDashboard() {
           <FiUsers className="w-8 h-8 text-emerald mb-2" />
           <h3 className="text-lg font-semibold">Total Users</h3>
           <p className="text-3xl font-bold text-emerald-dark">{users.length}</p>
+        </div>
+        <Link to="/admin/content" className="card hover:shadow-lg transition cursor-pointer bg-gradient-to-br from-purple-500 to-purple-600 text-white">
+          <FiImage className="w-8 h-8 mb-2" />
+          <h3 className="text-lg font-semibold">Content</h3>
+          <p className="text-sm opacity-80">Banners, Promos, Notices</p>
+        </Link>
+        <div className="card hover:shadow-lg transition cursor-pointer bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+          <FiBarChart2 className="w-8 h-8 mb-2" />
+          <h3 className="text-lg font-semibold">Analytics</h3>
+          <p className="text-sm opacity-80">View Reports</p>
         </div>
       </div>
 
