@@ -15,7 +15,11 @@ const serviceSchema = new mongoose.Schema({
     city: String,
     province: String
   },
-  commissionRate: { type: Number, default: 15 }
+  commissionRate: { type: Number, default: 15 },
+  rating: {
+    average: { type: Number, default: 0 },
+    count: { type: Number, default: 0 }
+  }
 }, { timestamps: true });
 
 serviceSchema.index({ title: 'text', description: 'text' });

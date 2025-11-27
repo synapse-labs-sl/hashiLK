@@ -37,10 +37,18 @@ router.put('/profile', authenticate, async (req, res) => {
 router.post('/become-seller', authenticate, async (req, res) => {
   try {
     req.user.isSeller = true;
-    req.user.sellerInfo = req.body.sellerInfo;
+    req.user.role = 'seller';
+    req.user.sellerInfo = {
+      ...req.user.sellerInfo,
+      ...req.body.sellerInfo
+    };
     await req.user.save();
     
-    res.json({ message: 'Successfully registered as seller', user: req.user });
+    // Return user without password
+    const userResponse = req.user.toObject();
+    delete userResponse.password;
+    
+    res.json({ message: 'Successfully registered as seller', user: userResponse });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

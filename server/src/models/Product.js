@@ -15,7 +15,11 @@ const productSchema = new mongoose.Schema({
     city: String,
     province: String
   },
-  specifications: mongoose.Schema.Types.Mixed
+  specifications: mongoose.Schema.Types.Mixed,
+  rating: {
+    average: { type: Number, default: 0 },
+    count: { type: Number, default: 0 }
+  }
 }, { timestamps: true });
 
 productSchema.index({ title: 'text', description: 'text' });
